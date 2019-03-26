@@ -12,6 +12,7 @@
 
 # production
 /dist
+/public/js
 
 # misc
 .DS_Store
