@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - '10'
+cache: yarn
+script:
+  - yarn run build
+deploy:
+  provider: heroku
+  api_key:
+    secure: PuliGgrzf0H4bvigpKwDvZfihJ6K8KFkE+ectmsKQrHyAZ+qaOtnOOqj3ZSJ8FvFv/tX3BPICTJ5LKybJX54HJnTdR9T4DsC43+ZPtv/1+hV1lmOgzVgeP86Tdba2sQGf6UFbpiGDb8wWpbHjDlbCi9eV8TL3EBTbvtP4URX3luuVrIChm4atYnNVKjhhxToWelCsTatS6IOcA0A8CaNkQcAQyE/dGrsC3sELSiux+51RkWidw2q9ciwuM43L1HEt9sqMVeT6V9Ycb7+zJI17yeLpKeCutYz7DiPaZQFXtVbT/9D5j+nUgfR+KR6V9t936k365gtuoQJ5FkP+fwytJZLmbGlns8fxcoY2LdPJbCM5ov0aKDOwUBihGsdk3VuqHDAcK7Ua0cFoBDnjnY0jry1WYEamwPPeSg6plrOrBEH3G0xiCiDR2BDhNTSSiI4WsyS45SVeWpP2GNI9Vqk/d+Se6qr7Ty2Umz83gyaqh6XDWC9cT4lqASbwnScsZ7E1cpnNyWEjx41qpSLti9gWkANmp3jeJAk00f2yL/Ix//ZQEI585jPtQQe4sUWrREhr2jtSHjOqxxDxMitt2Il6MIIrXIyZ1/n1TqIeWqN6xjZkfQBgYBQmmnjris+fZBVtpsXPIQpaHuOYYN7chr0d3MshfNNpuHALBNami9Uk0s=
+  skip_cleanup: true
+  app: f-maps
+  on:
+    repo: Ilyaololo/f-maps
