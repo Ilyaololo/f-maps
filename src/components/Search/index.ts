@@ -1,3 +1,5 @@
+import React from 'react';
+
 import compose from 'recompose/compose';
 import setDisplayName from 'recompose/setDisplayName';
 
@@ -8,6 +10,9 @@ import { Theme } from 'containers/Workbench';
 import { Search } from './Search';
 
 interface Props {
+  value: string;
+  handleBlur(e: React.FocusEvent<any>): void;
+  handleChange(e: React.ChangeEvent<any>): void;
 }
 
 export interface EnhancedProps extends Props, WithSheet<any, any, any> {

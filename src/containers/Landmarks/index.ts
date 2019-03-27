@@ -11,10 +11,11 @@ import { Theme } from 'containers/Workbench';
 import { Landmarks } from './Landmarks';
 
 interface Props {
+  value: any[];
 }
 
 interface WithProps {
-  options: OptionsParams;
+  innerProps: OptionsParams;
 }
 
 export interface EnhancedProps extends Props, WithProps, WithSheet<any, any, any> {
@@ -30,7 +31,7 @@ const enhance = compose<EnhancedProps, Props>(
     const payload: Partial<WithProps> = {
     };
 
-    payload.options = {
+    payload.innerProps = {
       groupByCoordinates: true,
     };
 

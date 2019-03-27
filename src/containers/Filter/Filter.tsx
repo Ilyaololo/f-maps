@@ -8,8 +8,16 @@ import { EnhancedProps } from './';
 export const Filter = React.memo((props: EnhancedProps) => {
   return (
     <div className={props.classes.root}>
-      <Search />
-      <Dataset options={props.options} />
+      <Search
+        handleBlur={props.handleBlur}
+        handleChange={props.handleChange}
+        value={props.values.search}
+      />
+      <Dataset
+        options={props.options}
+        setFieldValue={props.setFieldValue}
+        value={props.values.groups}
+      />
     </div>
   );
 });
