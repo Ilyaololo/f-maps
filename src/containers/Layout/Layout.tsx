@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Clusterer, Placemark } from 'react-yandex-maps';
-
 import Filter from 'containers/Filter';
+import Landmarks from 'containers/Landmarks';
 
 import { EnhancedProps } from './';
 
@@ -14,13 +13,7 @@ export const Layout = React.memo((props: EnhancedProps) => {
           options={props.options}
           values={props.values}
         />
-        {props.options.map(node => (
-          <Clusterer key={node.id} options={{ groupByCoordinates: true }}>
-            {node.items && node.items.map(inode => (
-              <Placemark key={inode.key} geometry={inode.coords} />
-            ))}
-          </Clusterer>
-        ))}
+        <Landmarks />
       </form>
     </div>
   );

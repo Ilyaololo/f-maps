@@ -6,7 +6,7 @@ export const Checkbox = React.memo((props: EnhancedProps) => {
   return (
     <label className={props.classes.root}>
       <input
-        checked={props.checked}
+        aria-checked={props.checked}
         name={props.name}
         onChange={props.onChange}
         type="checkbox"
