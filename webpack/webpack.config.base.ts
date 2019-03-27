@@ -1,8 +1,4 @@
-/* tslint:disable:object-literal-sort-keys */
-
 import path from 'path';
-
-import chalk from 'chalk';
 
 import webpack from 'webpack';
 import { Config } from 'webpack-config';
@@ -10,7 +6,6 @@ import { Config } from 'webpack-config';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 import HardSourceWebpackPlugin from 'hard-source-webpack-plugin';
-import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 
 const configuration = new Config()
@@ -147,10 +142,6 @@ const configuration = new Config()
           compress: false,
           ecma: 5,
         },
-      }),
-
-      new ProgressBarPlugin({
-        format: `Widget building [:bar] ${chalk.green.bold(':percent')} (:elapsed seconds)`,
       }),
     ],
   });

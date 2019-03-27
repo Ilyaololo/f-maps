@@ -36,10 +36,11 @@
         "public-instance-method"
       ]
     }],
+    "no-console": [true, "log"],
     "no-empty-interface": false,
     "no-implicit-dependencies": false,
-    "no-console": [true, "log"],
     "no-submodule-imports": false,
+    "object-literal-sort-keys": false,
     "object-shorthand-properties-first": false,
     "variable-name": false
   },
