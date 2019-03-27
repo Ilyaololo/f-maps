@@ -15,7 +15,7 @@ export interface FormValues {
   /**
    * Array of selected checkboxes
    */
-  groups: number[];
+  groups: string[];
 
   /**
    * Search input value
@@ -49,6 +49,8 @@ const enhance = compose<EnhancedProps, Props>(
   }),
 
   withFormik<EnhancedProps, FormValues>({
+    displayName: 'Layout',
+
     mapPropsToValues() {
       return {
         groups: [],

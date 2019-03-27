@@ -1,3 +1,5 @@
+import React from 'react';
+
 import compose from 'recompose/compose';
 import setDisplayName from 'recompose/setDisplayName';
 
@@ -11,6 +13,9 @@ import { Filter } from './Filter';
 interface Props {
   options: any[];
   values: FormValues;
+  handleBlur(e: React.FocusEvent<any>): void;
+  handleChange(e: React.ChangeEvent<any>): void;
+  setFieldValue(field: string, value: any): void;
 }
 
 export interface EnhancedProps extends Props, WithSheet<any, any, any> {

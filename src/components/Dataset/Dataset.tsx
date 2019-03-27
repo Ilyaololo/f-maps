@@ -4,17 +4,12 @@ import classNames from 'classnames';
 
 import Scrollbars from 'react-custom-scrollbars';
 
-import Checkbox from 'components/Checkbox';
-import CheckboxGroup from 'components/CheckboxGroup';
+import DatasetGroup from 'components/DatasetGroup';
 
 import { EnhancedProps } from './';
 
 export const Dataset = React.memo((props: EnhancedProps) => {
   const [collapsed, handleCollapse] = React.useState<boolean>(false);
-
-  const onChange = () => {
-    //
-  };
 
   return (
     <div
@@ -31,13 +26,14 @@ export const Dataset = React.memo((props: EnhancedProps) => {
         hideTracksWhenNotNeeded={true}
       >
         {props.options.map(node => (
-          <CheckboxGroup key={`group-${node.id}`} checked={false} color={node.color} label={node.label} >
-            {Array.isArray(node.items) && node.items.map(inode => (
-              <Checkbox key={`dataset-${inode.id}`} checked={false} name="group" onChange={onChange}>
-                {inode.label}
-              </Checkbox>
-            ))}
-          </CheckboxGroup>
+          <DatasetGroup
+            id={node.id}
+            items={node.items}
+            key={`checkbox-group-${node.id}`}
+            label={node.label}
+            setFieldValue={props.setFieldValue}
+            value={props.value}
+          />
         ))}
       </Scrollbars>
     </div>

@@ -10,12 +10,12 @@ import { Theme } from 'containers/Workbench';
 import { Checkbox } from './Checkbox';
 
 interface Props {
-  checked?: boolean | 'true' | 'false' | 'mixed';
+  checked?: boolean | 'mixed';
   children: React.ReactNode;
   help?: string;
   name: string;
-  onChange: () => void;
   variant?: 'primary' | 'secondary';
+  onChange(e: React.ChangeEvent<any>): void;
 }
 
 export interface EnhancedProps extends Props, WithSheet<any, any, any> {
@@ -61,10 +61,10 @@ const styles = (theme: Theme) => ({
       transition: 'all 0.3s ease',
       width: '18px',
     },
-    '& input[aria-checked="true"] + span:before': {
+    '& input:checked + span:before': {
       background: 'url(/img/checked.png) center center no-repeat',
     },
-    '& input[aria-checked="mixed"] + span:before': {
+    '& input[aria-checked="true"] + span:before': {
       background: 'url(/img/indeterminate.png) center center no-repeat',
     },
   },

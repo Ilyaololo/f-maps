@@ -9,6 +9,8 @@ import { Dataset } from './Dataset';
 
 interface Props {
   options: any[];
+  value: string[];
+  setFieldValue(field: string, value: any): void;
 }
 
 export interface EnhancedProps extends Props, WithSheet<any, any, any> {
@@ -16,9 +18,6 @@ export interface EnhancedProps extends Props, WithSheet<any, any, any> {
 
 const styles = (theme: Theme) => ({
   collapsed: {
-    '& > div': {
-      display: 'none',
-    },
   },
   root: {
   },
