@@ -10,10 +10,9 @@ import { Theme } from 'containers/Workbench';
 import { Checkbox } from './Checkbox';
 
 interface Props {
-  checked?: boolean;
+  checked?: boolean | 'true' | 'false' | 'mixed';
   children: React.ReactNode;
   help?: string;
-  mixed?: boolean;
   name: string;
   onChange: () => void;
   variant?: 'primary' | 'secondary';
@@ -26,7 +25,7 @@ const styles = (theme: Theme) => ({
   root: {
     cursor: 'pointer',
     paddingBottom: '5px',
-    paddingLeft: '27px',
+    paddingLeft: '32px',
     paddingTop: '5px',
     position: 'relative',
     userSelect: 'none',
@@ -48,7 +47,7 @@ const styles = (theme: Theme) => ({
     '& span::before': {
       background: '#fbfbfb',
       borderRadius: '3px',
-      boxShadow: `inset 0 0 3px 1px ${theme.palette.action.disabled}`,
+      boxShadow: `inset 0 0 0 1px ${theme.palette.action.disabled}`,
       content: '""',
       fontSize: '13px',
       fontWeight: '700',
@@ -62,8 +61,11 @@ const styles = (theme: Theme) => ({
       transition: 'all 0.3s ease',
       width: '18px',
     },
-    '& input:checked + span:before': {
-      background: 'url(/img/checkbox.png) center center no-repeat',
+    '& input[aria-checked="true"] + span:before': {
+      background: 'url(/img/checked.png) center center no-repeat',
+    },
+    '& input[aria-checked="mixed"] + span:before': {
+      background: 'url(/img/indeterminate.png) center center no-repeat',
     },
   },
 });
