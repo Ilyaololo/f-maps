@@ -1,6 +1,23 @@
 declare module 'react-yandex-maps' {
   import React from 'react';
 
+  export interface OptionsParams {
+    groupByCoordinates?: boolean;
+    preset?: string;
+  }
+
+  export interface ClustererProps {
+    options?: OptionsParams;
+  }
+
+  export class Clusterer extends React.Component<ClustererProps> {}
+
+  export interface PlacemarkProps {
+    geometry: string[] | number[];
+  }
+
+  export class Placemark extends React.Component<PlacemarkProps> {}
+
   export interface DefaultStateParams {
     center?: string[] | number[];
     zoom?: number;
