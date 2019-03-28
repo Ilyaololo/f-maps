@@ -1,11 +1,11 @@
 import React from 'react';
 
+import className from 'classnames';
+
 import { EnhancedProps } from './';
 
 export const Icon = React.memo((props: EnhancedProps) => {
   return (
-    <div className={props.classes.root}>
-      {/**/}
-    </div>
+    <span className={className(props.classes.root, props.className)} onClick={props.onClick} />
   );
 });

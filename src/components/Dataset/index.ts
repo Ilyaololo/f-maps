@@ -19,9 +19,9 @@ export interface EnhancedProps extends Props, WithSheet<any, any, any> {
 }
 
 const styles = (theme: Theme) => ({
-  collapsed: {
-  },
   root: {
+    height: '100%',
+    position: 'relative',
   },
 });
 

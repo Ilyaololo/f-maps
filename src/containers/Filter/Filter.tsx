@@ -11,6 +11,7 @@ export const Filter = React.memo((props: EnhancedProps) => {
       <Search
         handleBlur={props.handleBlur}
         handleChange={props.handleChange}
+        setFieldValue={props.setFieldValue}
         value={props.values.search}
       />
       <Dataset

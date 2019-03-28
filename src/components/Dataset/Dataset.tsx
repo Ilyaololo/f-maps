@@ -1,7 +1,5 @@
 import React from 'react';
 
-import classNames from 'classnames';
-
 import Scrollbars from 'react-custom-scrollbars';
 
 import DatasetGroup from 'components/DatasetGroup';
@@ -9,8 +7,6 @@ import DatasetGroup from 'components/DatasetGroup';
 import { EnhancedProps } from './';
 
 export const Dataset = React.memo((props: EnhancedProps) => {
-  const [collapsed, handleCollapse] = React.useState<boolean>(false);
-
   const options = React.useMemo(() => {
     if (!props.value.search) {
       return props.options;
@@ -38,11 +34,7 @@ export const Dataset = React.memo((props: EnhancedProps) => {
   }, [props.value.search]);
 
   return (
-    <div
-      className={classNames(props.classes.root, {
-        [props.classes.collapsed]: collapsed,
-      })}
-    >
+    <div className={props.classes.root}>
       <Scrollbars
         autoHeight={true}
         autoHeightMin={600}
