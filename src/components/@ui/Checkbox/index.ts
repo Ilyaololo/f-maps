@@ -5,7 +5,7 @@ import setDisplayName from 'recompose/setDisplayName';
 
 import withStyles, { WithSheet } from 'react-jss';
 
-import { Theme } from 'containers/Workbench';
+import { Theme } from 'helpers/theme';
 
 import { Checkbox } from './Checkbox';
 
@@ -33,19 +33,14 @@ const styles = (theme: Theme) => ({
       display: 'none',
     },
     '& span': {
-      fontWeight: (props) => {
-        if (props.variant === 'primary') {
-          return 'bold';
-        }
-      },
-      textTransform: (props) => {
-        if (props.variant === 'primary') {
-          return 'uppercase';
+      color: (props) => {
+        if (props.variant !== 'primary') {
+          return theme.palette.action.active;
         }
       },
     },
     '& span::before': {
-      background: '#fbfbfb',
+      background: theme.palette.background.default,
       borderRadius: '3px',
       boxShadow: `inset 0 0 0 1px ${theme.palette.action.disabled}`,
       content: '""',
