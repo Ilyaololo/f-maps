@@ -5,7 +5,7 @@ import withProps from 'recompose/withProps';
 
 import withStyles, { WithSheet } from 'react-jss';
 
-import { Theme } from 'containers/Workbench';
+import { Theme } from 'helpers/theme';
 
 import { DatasetGroupItem } from './DatasetGroupItem';
 

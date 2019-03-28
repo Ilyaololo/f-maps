@@ -11,7 +11,7 @@ export const Scaffold = React.memo((props: EnhancedProps) => {
     <div className={props.classes.root}>
       <div className={props.classes.container}>
         <Map
-          defaultState={props.innerProps.defaultState}
+          state={props.innerProps.state}
           height={props.innerProps.height}
           width={props.innerProps.width}
         >

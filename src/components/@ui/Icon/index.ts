@@ -3,7 +3,7 @@ import setDisplayName from 'recompose/setDisplayName';
 
 import withStyles, { WithSheet } from 'react-jss';
 
-import { Theme } from 'containers/Workbench';
+import { Theme } from 'helpers/theme';
 
 import { Icon } from './Icon';
 

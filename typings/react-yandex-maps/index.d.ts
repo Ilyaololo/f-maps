@@ -1,32 +1,54 @@
 declare module 'react-yandex-maps' {
   import React from 'react';
 
-  export interface OptionsParams {
+  export interface ClustererOptionsParams {
     groupByCoordinates?: boolean;
     preset?: string;
   }
 
   export interface ClustererProps {
-    options?: OptionsParams;
+    options?: ClustererOptionsParams;
   }
 
   export class Clusterer extends React.Component<ClustererProps> {}
 
+  export interface PlacemarkOptionsParams {
+    balloonCloseButton?: boolean;
+    openEmptyBalloon?: boolean;
+    preset?: any;
+    zIndex?: number;
+  }
+
+  export interface PlacemarkPropertiesParams {
+    balloonContent?: string;
+    balloonContentBody?: string;
+    balloonContentFooter?: string;
+    balloonContentHeader?: string;
+    hintContent?: string;
+    iconCaption?: string;
+    iconContent?: string;
+  }
+
   export interface PlacemarkProps {
     geometry: string[] | number[];
+    modules?: string[];
+    options?: PlacemarkOptionsParams;
+    properties?: PlacemarkPropertiesParams;
   }
 
   export class Placemark extends React.Component<PlacemarkProps> {}
 
-  export interface DefaultStateParams {
+  export interface MapDefaultStateParams {
     center?: string[] | number[];
+    modules?: any;
     zoom?: number;
   }
 
   export interface MapProps {
-    defaultState?: DefaultStateParams;
+    state?: MapDefaultStateParams;
     height?: number | string;
     width?: number | string;
+    instanceRef?(ref: ymaps.Map | null): void;
   }
 
   export class Map extends React.Component<MapProps> {}
@@ -34,7 +56,7 @@ declare module 'react-yandex-maps' {
   /**
    * @see https://tech.yandex.com/maps/doc/jsapi/2.1/dg/concepts/load-docpage/
    */
-  export interface QueryParams {
+  export interface YMapsQueryParams {
     /**
      * API key
      */
@@ -78,7 +100,7 @@ declare module 'react-yandex-maps' {
   export interface YMapsProps {
     enterprise?: boolean;
     preload?: boolean;
-    query?: QueryParams;
+    query?: YMapsQueryParams;
     version?: string;
   }
 

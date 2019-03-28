@@ -10,7 +10,7 @@ export const Search = React.memo((props: EnhancedProps) => {
         name="search"
         onBlur={props.handleBlur}
         onChange={props.handleChange}
-        placeholder="поиск по объектам"
+        placeholder="Поиск по объектам"
         type="text"
         value={props.value}
       />

@@ -5,7 +5,7 @@ import withProps from 'recompose/withProps';
 
 import withStyles, { WithSheet } from 'react-jss';
 
-import { Theme } from 'containers/Workbench';
+import { Theme } from 'helpers/theme';
 
 import { DatasetGroup } from './DatasetGroup';
 
@@ -33,9 +33,10 @@ const styles = (theme: Theme) => ({
     paddingTop: '5px',
   },
   root: {
-    background: `linear-gradient(to top, ${theme.palette.divider} 0%, ${theme.palette.common.white} 50%)`,
+    // background: `linear-gradient(to top, ${theme.palette.divider} 0%, ${theme.palette.common.white} 50%)`,
     borderLeft: '4px solid transparent',
-    padding: '25px 15px',
+    padding: '15px 35px 15px 15px',
+    borderBottom: `1px solid ${theme.palette.divider}`,
   },
   title: {
     display: 'flex',
