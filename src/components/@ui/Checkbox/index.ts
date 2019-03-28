@@ -34,7 +34,7 @@ const styles = (theme: Theme) => ({
     },
     '& span': {
       color: (props) => {
-        if (props.variant !== 'primary') {
+        if (props.variant === 'secondary') {
           return theme.palette.action.active;
         }
       },

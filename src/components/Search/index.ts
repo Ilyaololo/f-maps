@@ -35,11 +35,6 @@ const styles = (theme: Theme) => ({
     '&:focus': {
       outline: 'none',
     },
-    // '&::placeholder': {
-    //   color: theme.palette.common.black,
-    //   fontSize: '1.2rem',
-    //   opacity: 0.42,
-    // },
     '&::-webkit-input-placeholder': { // Chrome/Opera/Safari
       color: theme.palette.common.black,
       fontSize: '1.2rem',
@@ -65,6 +60,7 @@ const styles = (theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
     borderBottom: `1px solid ${theme.palette.divider}`,
     padding: '15px',
+    position: 'relative',
   },
 });
 

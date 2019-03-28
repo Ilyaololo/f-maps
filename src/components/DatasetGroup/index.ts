@@ -10,6 +10,7 @@ import { Theme } from 'helpers/theme';
 import { DatasetGroup } from './DatasetGroup';
 
 interface Props {
+  filtered: boolean;
   id: string;
   items: any[];
   label: string;
@@ -26,17 +27,30 @@ export interface EnhancedProps extends Props, WithProps, WithSheet<any, any, any
 }
 
 const styles = (theme: Theme) => ({
-  container: {
+  bordered: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    paddingBottom: '15px',
+    paddingTop: '15px',
+  },
+  col: {
     display: 'flex',
     flexDirection: 'column',
+  },
+  container: {
     marginLeft: '25px',
     paddingTop: '5px',
   },
   root: {
     // background: `linear-gradient(to top, ${theme.palette.divider} 0%, ${theme.palette.common.white} 50%)`,
     borderLeft: '4px solid transparent',
-    padding: '15px 35px 15px 15px',
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    paddingLeft: '15px',
+    paddingRight: '35px',
+    '&:first-child': {
+      paddingTop: '15px',
+    },
+    '&:last-child': {
+      paddingBottom: '15px',
+    },
   },
   title: {
     display: 'flex',
