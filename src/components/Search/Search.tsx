@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Icon from 'components/@ui/Icon';
+
 import { EnhancedProps } from './';
 
 export const Search = React.memo((props: EnhancedProps) => {
@@ -14,6 +16,9 @@ export const Search = React.memo((props: EnhancedProps) => {
         type="text"
         value={props.value}
       />
+      {props.value && (
+        <Icon className={props.classes.clear} icon="clear" onClick={props.onClick} />
+      )}
     </div>
   );
 });

@@ -2,6 +2,7 @@ import React from 'react';
 
 import compose from 'recompose/compose';
 import setDisplayName from 'recompose/setDisplayName';
+import withProps from 'recompose/withProps';
 
 import withStyles, { WithSheet } from 'react-jss';
 
@@ -13,12 +14,23 @@ interface Props {
   value: string;
   handleBlur(e: React.FocusEvent<any>): void;
   handleChange(e: React.ChangeEvent<any>): void;
+  setFieldValue(field: string, value: any): void;
 }
 
-export interface EnhancedProps extends Props, WithSheet<any, any, any> {
+interface WithProps {
+  onClick(): void;
+}
+
+export interface EnhancedProps extends Props, WithProps, WithSheet<any, any, any> {
 }
 
 const styles = (theme: Theme) => ({
+  clear: {
+    cursor: 'pointer',
+    position: 'absolute',
+    right: '25px',
+    top: '25px',
+  },
   input: {
     border: '1px solid transparent',
     borderRadius: '2px',
@@ -65,6 +77,17 @@ const styles = (theme: Theme) => ({
 });
 
 const enhance = compose<EnhancedProps, Props>(
+  withProps((props: Props) => {
+    const payload: Partial<WithProps> = {
+    };
+
+    payload.onClick = () => {
+      props.setFieldValue('search', '');
+    };
+
+    return payload;
+  }),
+
   withStyles(styles),
 
   setDisplayName('Search'),
