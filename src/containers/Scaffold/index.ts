@@ -37,6 +37,7 @@ const styles = (theme: Theme) => ({
     width: '1320px',
 
     fontFamily: '"Noto Sans", sans-serif',
+    fontSize: '15px',
     margin: '0 auto',
     overflow: 'hidden',
     padding: '15px 25px',

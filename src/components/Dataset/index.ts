@@ -3,13 +3,15 @@ import setDisplayName from 'recompose/setDisplayName';
 
 import withStyles, { WithSheet } from 'react-jss';
 
+import { FormValues } from 'containers/Layout';
+
 import { Theme } from 'helpers/theme';
 
 import { Dataset } from './Dataset';
 
 interface Props {
   options: any[];
-  value: string[];
+  value: FormValues;
   setFieldValue(field: string, value: any): void;
 }
 

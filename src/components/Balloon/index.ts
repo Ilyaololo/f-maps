@@ -16,11 +16,11 @@ export interface EnhancedProps extends Props, WithSheet<any, any, any> {
 
 const styles = (theme: Theme) => ({
   content: {
-    fontSize: '14px',
+    fontSize: '13px',
   },
   footer: {
     color: theme.palette.action.active,
-    fontSize: '14px',
+    fontSize: '13px',
     marginTop: '5px',
   },
   heading: {
@@ -30,7 +30,7 @@ const styles = (theme: Theme) => ({
     boxSizing: 'content-box',
     color: theme.palette.common.black,
     fontFamily: '"Noto Sans", sans-serif',
-    fontSize: '16px',
+    fontSize: '15px',
     lineHeight: '18px',
   },
 });

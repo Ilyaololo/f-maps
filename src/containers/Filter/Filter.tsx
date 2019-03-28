@@ -16,7 +16,7 @@ export const Filter = React.memo((props: EnhancedProps) => {
       <Dataset
         options={props.options}
         setFieldValue={props.setFieldValue}
-        value={props.values.groups}
+        value={props.values}
       />
     </div>
   );
