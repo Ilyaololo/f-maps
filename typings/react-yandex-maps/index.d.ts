@@ -8,9 +8,11 @@ declare module 'react-yandex-maps' {
 
   export interface ClustererProps {
     options?: ClustererOptionsParams;
+    instanceRef?(ref: ymaps.Clusterer | null): void;
   }
 
-  export class Clusterer extends React.Component<ClustererProps> {}
+  export class Clusterer extends React.Component<ClustererProps> {
+  }
 
   export interface PlacemarkOptionsParams {
     balloonCloseButton?: boolean;
@@ -36,22 +38,25 @@ declare module 'react-yandex-maps' {
     properties?: PlacemarkPropertiesParams;
   }
 
-  export class Placemark extends React.Component<PlacemarkProps> {}
+  export class Placemark extends React.Component<PlacemarkProps> {
+  }
 
-  export interface MapDefaultStateParams {
+  export interface MapStateParams {
     center?: string[] | number[];
     modules?: any;
     zoom?: number;
   }
 
   export interface MapProps {
-    state?: MapDefaultStateParams;
+    state?: MapStateParams;
     height?: number | string;
     width?: number | string;
     instanceRef?(ref: ymaps.Map | null): void;
+    onLoad?(ref: typeof ymaps | null): void;
   }
 
-  export class Map extends React.Component<MapProps> {}
+  export class Map extends React.Component<MapProps> {
+  }
 
   /**
    * @see https://tech.yandex.com/maps/doc/jsapi/2.1/dg/concepts/load-docpage/
@@ -78,12 +83,12 @@ declare module 'react-yandex-maps' {
      * Language
      * @default 'ru_RU'
      */
-    lang?: 'en-US' | 'en_RU' | 'ru-RU' | 'ru_UA' |  'uk_UA' | 'tr-TR';
+    lang?: 'en-US' | 'en_RU' | 'ru-RU' | 'ru_UA' | 'uk_UA' | 'tr-TR';
 
     /**
      * List of modules to load.
      */
-    load?: 'package.full';
+    load?: string;
 
     /**
      * API loading mode.
@@ -104,5 +109,13 @@ declare module 'react-yandex-maps' {
     version?: string;
   }
 
-  export class YMaps extends React.Component<YMapsProps> {}
+  export class YMaps extends React.Component<YMapsProps> {
+  }
+
+  export interface WithYMaps {
+    ymaps: typeof ymaps
+  }
+
+  export function withYMaps<T = any>(WrappedComponent: React.ComponentType<any>): React.ComponentType<T & WithYMaps>
 }
+

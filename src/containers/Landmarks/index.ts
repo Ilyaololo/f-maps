@@ -35,14 +35,14 @@ const styles = (theme: Theme) => ({
 });
 
 const enhance = compose<EnhancedProps, Props>(
-  withProps(() => {
+  withProps((props: Props) => {
     const payload: Partial<WithProps> = {
     };
 
     payload.innerProps = {
       clusterer: {
         options: {
-          groupByCoordinates: true,
+          groupByCoordinates: false,
         },
       },
       placemark: {
