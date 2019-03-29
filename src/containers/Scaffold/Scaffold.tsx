@@ -13,6 +13,7 @@ export const Scaffold = React.memo((props: EnhancedProps) => {
         <Map
           height={props.innerProps.height}
           instanceRef={props.instanceRef}
+          options={props.innerProps.options}
           state={props.innerProps.state}
           width={props.innerProps.width}
         >

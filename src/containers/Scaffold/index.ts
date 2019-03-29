@@ -4,7 +4,7 @@ import compose from 'recompose/compose';
 import setDisplayName from 'recompose/setDisplayName';
 import withProps from 'recompose/withProps';
 
-import { MapStateParams } from 'react-yandex-maps';
+import { MapOptionsParams, MapStateParams, withYMaps, WithYMaps } from 'react-yandex-maps';
 
 import withStyles, { WithSheet } from 'react-jss';
 
@@ -17,6 +17,7 @@ interface Props {
 
 interface WithProps {
   innerProps: {
+    options: MapOptionsParams,
     state: MapStateParams,
     height: string;
     width: string;
@@ -25,7 +26,7 @@ interface WithProps {
   instanceRef(ref: ymaps.Map | null): void;
 }
 
-export interface EnhancedProps extends Props, WithProps, WithSheet<any, any, any> {
+export interface EnhancedProps extends Props, WithYMaps, WithProps, WithSheet<any, any, any> {
 }
 
 const styles = (theme: Theme) => ({
@@ -49,18 +50,23 @@ const styles = (theme: Theme) => ({
 });
 
 const enhance = compose<EnhancedProps, Props>(
-  withProps((props: Props) => {
+  withYMaps,
+
+  withProps((props: Props & WithYMaps) => {
     const [instanceRef, setInstanceRef] = React.useState<ymaps.Map | null>(null);
 
     const payload: Partial<WithProps> = {
     };
 
     payload.innerProps = {
+      height: '100%',
+      options: {
+        maxZoom: 17,
+      },
       state: {
         center: [53.339953, 83.740041],
         zoom: 15,
       },
-      height: '100%',
       width: '100%',
     };
 
