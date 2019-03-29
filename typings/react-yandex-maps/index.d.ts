@@ -47,9 +47,14 @@ declare module 'react-yandex-maps' {
     zoom?: number;
   }
 
+  export interface MapOptionsParams {
+    maxZoom?: number;
+  }
+
   export interface MapProps {
-    state?: MapStateParams;
     height?: number | string;
+    options?: MapOptionsParams;
+    state?: MapStateParams;
     width?: number | string;
     instanceRef?(ref: ymaps.Map | null): void;
     onLoad?(ref: typeof ymaps | null): void;
