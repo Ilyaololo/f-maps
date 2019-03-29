@@ -2,7 +2,7 @@ import compose from 'recompose/compose';
 import setDisplayName from 'recompose/setDisplayName';
 import withProps from 'recompose/withProps';
 
-import { MapDefaultStateParams } from 'react-yandex-maps';
+import { MapStateParams } from 'react-yandex-maps';
 
 import withStyles, { WithSheet } from 'react-jss';
 
@@ -15,7 +15,7 @@ interface Props {
 
 interface WithProps {
   innerProps: {
-    state: MapDefaultStateParams,
+    state: MapStateParams,
     height: string;
     width: string;
   };
@@ -45,7 +45,7 @@ const styles = (theme: Theme) => ({
 });
 
 const enhance = compose<EnhancedProps, Props>(
-  withProps(() => {
+  withProps((props: Props) => {
     const payload: Partial<WithProps> = {
     };
 

@@ -28,6 +28,7 @@ const enhance = compose<EnhancedProps, Props>(
     payload.query = {
       apikey: process.env.YMAPS_SECRET_KEY,
       lang: 'ru-RU',
+      load: 'util.bounds',
     };
 
     if (process.env.NODE_ENV === 'development') {
