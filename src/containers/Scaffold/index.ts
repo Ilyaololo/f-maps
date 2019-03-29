@@ -1,3 +1,5 @@
+import React from 'react';
+
 import compose from 'recompose/compose';
 import setDisplayName from 'recompose/setDisplayName';
 import withProps from 'recompose/withProps';
@@ -19,6 +21,8 @@ interface WithProps {
     height: string;
     width: string;
   };
+  onUpdate(): void;
+  instanceRef(ref: ymaps.Map | null): void;
 }
 
 export interface EnhancedProps extends Props, WithProps, WithSheet<any, any, any> {
@@ -46,6 +50,8 @@ const styles = (theme: Theme) => ({
 
 const enhance = compose<EnhancedProps, Props>(
   withProps((props: Props) => {
+    const [instanceRef, setInstanceRef] = React.useState<ymaps.Map | null>(null);
+
     const payload: Partial<WithProps> = {
     };
 
@@ -56,6 +62,22 @@ const enhance = compose<EnhancedProps, Props>(
       },
       height: '100%',
       width: '100%',
+    };
+
+    payload.instanceRef = (ref: ymaps.Map | null) => {
+      if (ref) {
+        setInstanceRef(ref);
+      }
+    };
+
+    payload.onUpdate = () => {
+      if (instanceRef) {
+        const bounds = instanceRef.geoObjects.getBounds();
+
+        if (bounds) {
+          instanceRef.setBounds(bounds);
+        }
+      }
     };
 
     return payload;

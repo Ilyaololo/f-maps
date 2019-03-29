@@ -17,6 +17,10 @@ export const Layout = React.memo((props: EnhancedProps) => {
       .flat();
   }, [props.values.groups]);
 
+  React.useEffect(() => {
+    props.onUpdate();
+  }, [props.values]);
+
   return (
     <div className={props.classes.root}>
       <form onSubmit={props.handleSubmit}>
