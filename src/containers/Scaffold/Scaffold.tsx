@@ -12,10 +12,11 @@ export const Scaffold = React.memo((props: EnhancedProps) => {
       <div className={props.classes.container}>
         <Map
           height={props.innerProps.height}
+          instanceRef={props.instanceRef}
           state={props.innerProps.state}
           width={props.innerProps.width}
         >
-          <Layout />
+          <Layout onUpdate={props.onUpdate} />
         </Map>
       </div>
     </div>
