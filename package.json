@@ -43,8 +43,8 @@
     }
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.3",
     "classnames": "^2.2.6",
+    "core-js": "^3.0.1",
     "formik": "^1.5.2",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
