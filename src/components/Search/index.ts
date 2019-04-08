@@ -32,6 +32,7 @@ const styles = (theme: Theme) => ({
     top: '25px',
   },
   input: {
+    backgroundColor: theme.palette.common.white,
     border: '1px solid transparent',
     borderRadius: '2px',
     boxSizing: 'border-box',
