@@ -1,11 +1,15 @@
+import React from 'react';
+
 import Filter from 'containers/Filter';
 import Landmarks from 'containers/Landmarks';
-import React from 'react';
 
 import { EnhancedProps } from './';
 
 export const Layout = React.memo((props: EnhancedProps) => {
   const value = React.useMemo(() => {
+    // tslint:disable-next-line
+    console.log('payload.options', props.options);
+
     return props.options
       .map((node) => {
         if (!Array.isArray(node.items)) {
