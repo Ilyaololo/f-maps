@@ -7,9 +7,6 @@ import { EnhancedProps } from './';
 
 export const Layout = React.memo((props: EnhancedProps) => {
   const value = React.useMemo(() => {
-    // tslint:disable-next-line
-    console.log('payload.options', props.options);
-
     return props.options
       .map((node) => {
         if (!Array.isArray(node.items)) {
