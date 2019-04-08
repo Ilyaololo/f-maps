@@ -108,8 +108,10 @@ const configuration = new Config()
             {
               loader: 'awesome-typescript-loader',
               options: {
+                babelCore: '@babel/core',
                 cacheDirectory: 'node_modules/.cache/awesome-typescript-loader',
                 silent: true,
+                useBabel: true,
                 useCache: true,
                 useTranspileModule: true,
               },
@@ -138,6 +140,7 @@ const configuration = new Config()
       new HardSourceWebpackPlugin(),
 
       new TerserPlugin({
+        parallel: true,
         terserOptions: {
           compress: false,
           ecma: 5,

@@ -55,6 +55,8 @@
     "recompose": "^0.30.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "@types/classnames": "^2.2.7",
     "@types/node": "^11.13.0",
     "@types/react": "^16.8.12",
